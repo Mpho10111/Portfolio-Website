@@ -14,8 +14,11 @@ function App(){
       <Navbar
         name= "Mpho Murashiwa"
         linkOne="Home"
-        linkTwo="Projects"
-        linkThree="Contact"
+        linkTwo="About"
+        linkThree="Resume"
+        linkFour="Skills"
+        linkFive="Projects"
+        linkSix="Contact"
       
       />
       <Hero

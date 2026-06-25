@@ -9,6 +9,10 @@ function Navbar(props){
                 <li>{props.linkOne}</li>
                 <li>{props.linkTwo}</li>
                 <li>{props.linkThree}</li>
+                <li>{props.linkFour}</li>
+                <li>{props.linkFive}</li>
+                <li>{props.linkSix}</li>
+                
             </ul>
         </nav>
     )
