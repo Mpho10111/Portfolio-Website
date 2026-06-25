@@ -1,56 +1,72 @@
 import { useState, useEffect } from "react";
 
-function Hero(props){
+function Hero(props) {
 
-    const titles = [
-        "Computer Science student",
-        "female in STEM"
-    ];
+  const titles = [
+    "Computer Science student!",
+    "female in STEM!"
+  ];
 
-    const [currentTitle, setCurrentTitle] = useState(0);
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
 
-    useEffect(() => {
+  useEffect(() => {
+    const currentTitle = titles[currentTitleIndex];
 
-        const interval = setInterval(() => {
+    // Typing effect
+    if (charIndex < currentTitle.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + currentTitle[charIndex]);
+        setCharIndex((prev) => prev + 1);
+      }, 50);
 
-            setCurrentTitle((prev) =>
-                prev === titles.length - 1 ? 0 : prev + 1
-            );
+      return () => clearTimeout(timeout);
+    } 
+    // Pause, then switch
+    else {
+      const timeout = setTimeout(() => {
+        setDisplayedText("");
+        setCharIndex(0);
+        setCurrentTitleIndex((prev) =>
+          prev === titles.length - 1 ? 0 : prev + 1
+        );
+      }, 1500);
 
-        }, 2000);
+      return () => clearTimeout(timeout);
+    }
 
-        return () => clearInterval(interval);
+  }, [charIndex, currentTitleIndex]);
 
-    }, []);
+  return (
+    <section id="home" className="hero">
 
-    return(
-        <section className="hero">
+      <div className="hero-content">
 
-            <div className="hero-content">
-    
-                <article className="hero-left">
-                    <h1>
-                        <span className="intro">Hi, I'm</span>
-                        <span className="name"> Mpho.</span>
-                    </h1>
+        <article className="hero-left">
+          <h1>
+            <span className="intro">Hi, I'm</span>
+            <span className="name"> Mpho.</span>
+          </h1>
 
-                    <h2 className="typing-text">
-                        I'm a {titles[currentTitle]}
-                    </h2>
+          <h2 className="typing-text">
+            I'm a <span className="highlight">{displayedText}</span>
+            <span className="cursor">|</span>
+          </h2>
 
-                    <p>{props.description}</p>
+          <p>{props.description}</p>
 
-                    <button className="cta">Let's get in touch</button>
-                </article>
+          <button className="cta">Let's get in touch</button>
+        </article>
 
-                <div className="hero-right">
-                    <img src="/avatar.svg" alt="avatar" />
-                </div>
+        <div className="hero-right">
+          <img src="/avatar.svg" alt="avatar" />
+        </div>
 
-            </div>
+      </div>
 
-        </section>
-    );
+    </section>
+  );
 }
 
 export default Hero;

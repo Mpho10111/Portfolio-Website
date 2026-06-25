@@ -1,49 +1,52 @@
-import ProjectCard from "./ProjectCard";
+function Projects() {
 
+  const projects = [
+    {
+      title: "Campus Marketplace",
+      description: "A platform for students to buy and sell items.",
+      tech: "React, Java, Spring Boot",
+      image: "/project1.png"
+    },
+    {
+      title: "Machine Learning Project",
+      description: "A machine learning solution built using data analysis.",
+      tech: "Python, Pandas, Scikit-learn",
+      image: "/project2.png"
+    }
+  ];
 
-function Projects(){
+  return (
+    <section id="projects" className="projects">
 
-    const projects = [
-        {
-            title: "Campus Marketplace",
-            description:
-            "A platform for students to buy and sell items.",
-            technologies:
-            "React, Java, Spring Boot"
-        },
+      <h2>Projects</h2>
 
-        {
-            title: "Machine Learning Project",
-            description:
-            "A machine learning solution built using data analysis.",
-            technologies:
-            "Python, Pandas, Scikit-learn"
-        }
-    ];
+      <div className="project-container">
 
+        {projects.map((project) => (
+          <article className="project-card" key={project.title}>
 
-    return (
-        <section className="projects">
+            <h3>{project.title}</h3>
 
-            <h2>
-                Projects
-            </h2>
+            {/* 👇 Image right under title */}
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              className="project-image"
+            />
 
+            <p>{project.description}</p>
 
-            {projects.map((project) => (
-                <ProjectCard
-                    key={project.title}
-                    title={project.title}
-                    description={project.description}
-                    technologies={project.technologies}
-                />
-            ))}
+            <p className="tech">
+              Technologies: {project.tech}
+            </p>
 
+          </article>
+        ))}
 
-        </section>
-    )
+      </div>
 
+    </section>
+  );
 }
-
 
 export default Projects;

@@ -1,83 +1,73 @@
-function Skills(){
+function Skills() {
+  const skills = [
+    {
+      category: "Languages",
+      technologies: [
+        "Python",
+        "JavaScript",
+        "SQL",
+        "HTML5",
+        "CSS3",
+        "C++",
+        "Java"
+      ]
+    },
+    {
+      category: "Frameworks & Libraries",
+      technologies: [
+        "React",
+        "Node.js",
+        "TailwindCSS",
+        "Android SDK",
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+        "Scikit-learn",
+        "TensorFlow / PyTorch"
+      ]
+    },
+    {
+      category: "Tools & Platforms",
+      technologies: [
+        "Git",
+        "GitHub",
+        "Azure",
+        "Trello",
+        "Visual Studio",
+        "VS Code"
+      ]
+    },
+    {
+      category: "Methodologies",
+      technologies: [
+        "Agile / Scrum",
+        "CI/CD",
+        "Test-Driven Development",
+        "RESTful API Design"
+      ]
+    }
+  ];
 
-    const skills = [
-        {
-            category: "Frontend",
-            technologies: [
-                "React",
-                "JavaScript",
-                "HTML",
-                "CSS"
-            ]
-        },
+  return (
+    <section id="skills" className="skills">
+      <h2>Skills</h2>
 
-        {
-            category: "Backend",
-            technologies: [
-                "Java",
-                "Spring Boot"
-            ]
-        },
+      <div className="skills-container">
+        {skills.map((skillGroup) => (
+          <article key={skillGroup.category} className="skills-card">
+            
+            <h3>{skillGroup.category}</h3>
 
-        {
-            category: "Data & Machine Learning",
-            technologies: [
-                "Python",
-                "Pandas",
-                "NumPy",
-                "Scikit-learn"
-            ]
-        },
-
-        {
-            category: "Tools",
-            technologies: [
-                "Git",
-                "GitHub",
-                "Docker"
-            ]
-        }
-    ];
-
-
-    return (
-        <section className="skills">
-
-            <h2>
-                Skills
-            </h2>
-
-
-            {skills.map((skillGroup) => (
-
-                <article key={skillGroup.category}>
-
-                    <h3>
-                        {skillGroup.category}
-                    </h3>
-
-
-                    <ul>
-
-                        {skillGroup.technologies.map((technology) => (
-
-                            <li key={technology}>
-                                {technology}
-                            </li>
-
-                        ))}
-
-                    </ul>
-
-                </article>
-
-            ))}
-
-
-        </section>
-    )
-
+            <ul>
+              {skillGroup.technologies.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
-
 
 export default Skills;

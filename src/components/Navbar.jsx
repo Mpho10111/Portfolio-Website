@@ -6,12 +6,12 @@ function Navbar(props){
             <h2>{props.name}</h2>
 
             <ul>
-                <li>{props.linkOne}</li>
-                <li>{props.linkTwo}</li>
-                <li>{props.linkThree}</li>
-                <li>{props.linkFour}</li>
-                <li>{props.linkFive}</li>
-                <li>{props.linkSix}</li>
+                <li><a href="#home">{props.linkOne}</a></li>
+                <li><a href="#about">{props.linkTwo}</a></li>
+                <li><a href= "resume">{props.linkThree}</a></li>
+                <li><a href="#skills">{props.linkFour}</a></li>
+                <li><a href="#projects">{props.linkFive}</a></li>
+                <li><a href="#contact">{props.linkSix}</a></li>
                 
             </ul>
         </nav>

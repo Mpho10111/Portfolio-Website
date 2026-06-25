@@ -15,6 +15,10 @@ nav {
   align-items: center;
   padding: 20px 10%;
   background-color: #e0f2fe;
+
+  position: sticky;  
+  top: 0;            /* stick to top */
+  z-index: 1000;     /* stay above everything */
 }
 
 nav h2 {
@@ -42,6 +46,16 @@ nav li {
 
 nav li:hover {
   opacity: 0.7;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0f2a44; /* your dark blue */
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #7dd3fc; /* light blue on hover */
 }
 
 /* ========================= */
@@ -109,6 +123,10 @@ nav li:hover {
   margin-top: 15px;
 }
 
+.highlight {
+  color: hsl(203, 86%, 85%); /* light blue */
+}
+
 /* CTA Button */
 .cta {
   margin-top: 20px;
@@ -139,7 +157,7 @@ nav li:hover {
 .about {
   padding: 100px 10%;
   text-align: center;
-  background-color: #f9fafb;
+  background-color: #ffffff;
 }
 
 .about h2 {
@@ -152,7 +170,7 @@ nav li:hover {
 .about h3 {
   font-size: 24px;
   font-weight: 600;
-  color: #7dd3fc;
+  color: hsl(203, 86%, 85%);
   margin-bottom: 30px;
 }
 
@@ -173,8 +191,24 @@ nav li:hover {
 /* ========================= */
 
 .skills {
-  padding: 80px 10%;
+  padding: 100px 10%;
   text-align: center;
+  background-color: #ffffff; /* same as About */
+
+}
+
+.skills h2{
+  font-size: 48px;
+  font-weight: 800;
+  color: #0b2e59;
+  margin-bottom: 10px;
+}
+
+.skills h3{
+  font-size: 24px;
+  font-weight: 600;
+  color: #0b2e59;
+  margin-bottom: 30px;    
 }
 
 .skills article {
@@ -191,9 +225,15 @@ nav li:hover {
 }
 
 .skills li {
-  padding: 10px 18px;
-  background-color: #e0f2fe;
-  border-radius: 20px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  background-color: #e0f2fe;;
+  color: #0b2e59;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* ========================= */
@@ -205,28 +245,92 @@ nav li:hover {
   text-align: center;
 }
 
+.projects h2{
+  font-size: 48px;
+  font-weight: 800;
+  color: #0b2e59;
+  margin-bottom: 10px;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* makes it responsive */
+  margin-top: 2rem;
+}
+
 .project-card {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 500px;
-  border-radius: 10px;
-  background-color: #f9fafb;
-  transition: 0.3s;
+  background: #f5f7fa;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
 }
 
+/* 🖼️ Image styling */
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.project-card h3 {
+  color: #0f2a44; /* your dark blue */
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #333;
+}
+
+.tech {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ========================= */
+/* 🔷 DATATHON ACHIEVEMENTS */
+/* ========================= */
+
+.datathons {
+  padding: 100px 10%;
+  text-align: center;
+  background-color: #ffffff; /* same as About */  
+}
+
+.datathons h2{
+  font-size: 48px;
+  font-weight: 800;
+  color: #0b2e59;
+  margin-bottom: 10px;
+}
+
+
+
 /* ========================= */
 /* 🔷 CONTACT */
 /* ========================= */
 
 .contact {
-  padding: 80px 10%;
+  padding: 100px 10%;
   text-align: center;
+  background-color: #ffffff; /* same as About */  
 }
 
+.contact h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0b2e59;
+  margin-bottom: 10px;
+}
 .contact ul {
   list-style: none;
   padding: 0;
@@ -263,4 +367,8 @@ nav li:hover {
   nav ul {
     display: none; /* you can add hamburger menu later */
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
