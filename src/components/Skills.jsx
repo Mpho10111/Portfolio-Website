@@ -18,7 +18,6 @@ function Skills() {
         "React",
         "Node.js",
         "TailwindCSS",
-        "Android SDK",
         "NumPy",
         "Pandas",
         "Matplotlib",
