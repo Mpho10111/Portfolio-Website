@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaEnvelope, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 function Hero(props) {
 
@@ -56,11 +57,25 @@ function Hero(props) {
 
           <p>{props.description}</p>
 
-          <button className="cta">Let's get in touch</button>
+            <div className="social-icons">
+                <a href="mailto:mphomurashiwa@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <FaEnvelope />
+                </a>
+
+                <a href="https://www.linkedin.com/in/mpho-murashiwa/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin />
+                </a>
+
+                <a href="https://wa.me/2782321866" target="_blank" rel="noopener noreferrer">
+                <   FaWhatsapp />
+                </a>
+            </div>
+
+            <a href="#contact" className="cta">Let's get in touch</a>
         </article>
 
         <div className="hero-right">
-          <img src="/avatar.svg" alt="avatar" />
+          <img src="/main_picture.jpeg" alt="avatar" />
         </div>
 
       </div>

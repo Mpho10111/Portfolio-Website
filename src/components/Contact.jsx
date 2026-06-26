@@ -1,53 +1,49 @@
-function Contact(){
+import emailjs from "emailjs-com";
 
-    return (
-        <section id="contact" className="contact">
+function Contact() {
 
-            <h2>
-                Contact
-            </h2>
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-
-            <p>
-                Interested in working together? Feel free to reach out.
-            </p>
-
-
-            <ul>
-
-                <li>
-                    <a href="mailto:your-email@example.com">
-                        Email
-                    </a>
-                </li>
-
-
-                <li>
-                    <a 
-                        href="https://github.com/Mpho10111"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        GitHub
-                    </a>
-                </li>
-
-
-                <li>
-                    <a 
-                        href="https://linkedin.com/in/mpho-murashiwa"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        LinkedIn
-                    </a>
-                </li>
-
-            </ul>
-
-        </section>
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      e.target,
+      "YOUR_PUBLIC_KEY"
     )
+    .then(() => {
+      alert("Message sent successfully!");
+    }, () => {
+      alert("Something went wrong.");
+    });
 
+    e.target.reset();
+  };
+
+  return (
+    <section id="contact" className="contact">
+      <h2>Contact Me</h2>
+
+      <form onSubmit={sendEmail}>
+        <div className="contact-container">
+
+          <div className="contact-left">
+            <input type="text" name="user_name" placeholder="Full Name" required />
+            <input type="email" name="user_email" placeholder="Email" required />
+            <input type="text" name="phone" placeholder="Phone Number" />
+            <input type="text" name="subject" placeholder="Subject" />
+          </div>
+
+          <div className="contact-right">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  );
 }
 
 export default Contact;

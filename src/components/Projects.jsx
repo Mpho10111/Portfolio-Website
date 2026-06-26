@@ -3,14 +3,14 @@ function Projects() {
   const projects = [
     {
       title: "Campus Marketplace",
-      description: "A platform for students to buy and sell items.",
-      tech: "React, Java, Spring Boot",
+      description: "A platform for Wits students to securely buy and sell items.",
+      tech: "React, JavaScript, Express (Node.js), Azure",
       image: "/project1.png"
     },
     {
-      title: "Machine Learning Project",
-      description: "A machine learning solution built using data analysis.",
-      tech: "Python, Pandas, Scikit-learn",
+      title: "Personal Portfolio Website",
+      description: "A personal portfolio that showcases my personal and professional skills"             ,
+      tech: "React, JavaScript",
       image: "/project2.png"
     }
   ];
@@ -27,7 +27,7 @@ function Projects() {
 
             <h3>{project.title}</h3>
 
-            {/* 👇 Image right under title */}
+            {/*  Image right under title */}
             <img 
               src={project.image} 
               alt={project.title} 

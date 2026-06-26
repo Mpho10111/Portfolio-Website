@@ -23,7 +23,7 @@ function App(){
       />
       <Hero
         name="Hi, I'm Mpho"
-        description= "Computer Science student and aspiring software developer."
+        description= "..."
       />
       <About
 

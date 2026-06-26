@@ -8,7 +8,6 @@ function Navbar(props){
             <ul>
                 <li><a href="#home">{props.linkOne}</a></li>
                 <li><a href="#about">{props.linkTwo}</a></li>
-                <li><a href= "resume">{props.linkThree}</a></li>
                 <li><a href="#skills">{props.linkFour}</a></li>
                 <li><a href="#projects">{props.linkFive}</a></li>
                 <li><a href="#contact">{props.linkSix}</a></li>
