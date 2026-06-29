@@ -4,7 +4,6 @@ import { FaEnvelope, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 function Hero(props) {
 
   const titles = [
-    "Computer Science student!",
     "female in STEM!", 
     "data science enthusiast!", 
     "web designer!"
