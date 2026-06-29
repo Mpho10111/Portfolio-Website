@@ -72,7 +72,7 @@ function Hero(props) {
                 <FaLinkedin />
               </a>
 
-              <a href="https://wa.me/2782321866" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/27782321866" target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp />
               </a>
             </div>
