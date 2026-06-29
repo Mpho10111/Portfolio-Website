@@ -5,7 +5,9 @@ function Hero(props) {
 
   const titles = [
     "Computer Science student!",
-    "female in STEM!"
+    "female in STEM!", 
+    "data science enthusiast!", 
+    "web designer!"
   ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -15,7 +17,6 @@ function Hero(props) {
   useEffect(() => {
     const currentTitle = titles[currentTitleIndex];
 
-    // Typing effect
     if (charIndex < currentTitle.length) {
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + currentTitle[charIndex]);
@@ -23,9 +24,7 @@ function Hero(props) {
       }, 50);
 
       return () => clearTimeout(timeout);
-    } 
-    // Pause, then switch
-    else {
+    } else {
       const timeout = setTimeout(() => {
         setDisplayedText("");
         setCharIndex(0);
@@ -45,35 +44,49 @@ function Hero(props) {
       <div className="hero-content">
 
         <article className="hero-left">
-          <h1>
-            <span className="intro">Hi, I'm</span>
-            <span className="name"> Mpho.</span>
-          </h1>
 
-          <h2 className="typing-text">
-            I'm a <span className="highlight">{displayedText}</span>
-            <span className="cursor">|</span>
-          </h2>
+          {/* TEXT AREA */}
+          <div className="hero-text">
+            <h1>
+              <span className="intro">Hi, I'm</span>
+              <span className="name"> Mpho.</span>
+            </h1>
 
-          <p>{props.description}</p>
+            <h2 className="typing-text">
+              I'm a{" "}
+              <span className="highlight">{displayedText}</span>
+              <span className="cursor">|</span>
+            </h2>
+
+            <p>{props.description}</p>
+          </div>
+
+          {/* ACTIONS AREA */}
+          <div className="hero-actions">
 
             <div className="social-icons">
-                <a href="mailto:mphomurashiwa@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <FaEnvelope />
-                </a>
+              <a href="mailto:mphomurashiwa@gmail.com" target="_blank" rel="noopener noreferrer">
+                <FaEnvelope />
+              </a>
 
-                <a href="https://www.linkedin.com/in/mpho-murashiwa/" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin />
-                </a>
+              <a href="https://www.linkedin.com/in/mpho-murashiwa/" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin />
+              </a>
 
-                <a href="https://wa.me/2782321866" target="_blank" rel="noopener noreferrer">
-                <   FaWhatsapp />
-                </a>
+              <a href="https://wa.me/2782321866" target="_blank" rel="noopener noreferrer">
+                <FaWhatsapp />
+              </a>
             </div>
 
-            <a href="#contact" className="cta">Let's get in touch</a>
+            <a href="#contact" className="cta">
+              Let's get in touch
+            </a>
+
+          </div>
+
         </article>
 
+        {/* IMAGE */}
         <div className="hero-right">
           <img src="/main_picture.jpeg" alt="avatar" />
         </div>

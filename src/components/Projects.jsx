@@ -3,48 +3,47 @@ function Projects() {
   const projects = [
     {
       title: "Campus Marketplace",
-      description: "A platform for Wits students to securely buy and sell items.",
-      tech: "React, JavaScript, Express (Node.js), Azure",
+      link: "https://github.com/your-username/campus-marketplace",
       image: "/project1.png"
     },
     {
       title: "Personal Portfolio Website",
-      description: "A personal portfolio that showcases my personal and professional skills"             ,
-      tech: "React, JavaScript",
+      link: "https://github.com/your-username/portfolio",
       image: "/project2.png"
     }
   ];
 
   return (
     <section id="projects" className="projects">
-
       <h2>Projects</h2>
 
       <div className="project-container">
 
         {projects.map((project) => (
-          <article className="project-card" key={project.title}>
+          <div className="project-item" key={project.title}>
 
-            <h3>{project.title}</h3>
+            {/* 🔹 Title ABOVE */}
+            <h3 className="project-title">
+              {project.title}
+            </h3>
 
-            {/*  Image right under title */}
-            <img 
-              src={project.image} 
-              alt={project.title} 
-              className="project-image"
-            />
+            {/* 🔹 Only IMAGE is clickable */}
+            <a 
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="project-image"
+              />
+            </a>
 
-            <p>{project.description}</p>
-
-            <p className="tech">
-              Technologies: {project.tech}
-            </p>
-
-          </article>
+          </div>
         ))}
 
       </div>
-
     </section>
   );
 }

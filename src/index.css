@@ -80,6 +80,24 @@ nav a:hover {
 .hero-left {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
+  height: 350px; 
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  min-height: 120px; /* keeps text contained */
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* or center for mobile */
+  gap: 15px;
 }
 
 .hero h1 {
@@ -102,6 +120,16 @@ nav a:hover {
   color: #0b2e59;
   margin-top: 10px;
   transition: opacity 0.5s ease;
+
+  
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+
+}
+
+.highlight {
+  margin-left: 6px;
 }
 
 /* Blinking cursor */
@@ -218,47 +246,78 @@ nav a:hover {
 .skills {
   padding: 100px 10%;
   text-align: center;
-  background-color: #ffffff; /* same as About */
-
+  background-color: #ffffff;
 }
 
-.skills h2{
+.skills h2 {
   font-size: 48px;
   font-weight: 800;
   color: #0b2e59;
   margin-bottom: 10px;
 }
 
-.skills h3{
-  font-size: 24px;
-  font-weight: 600;
-  color: #0b2e59;
-  margin-bottom: 30px;    
-}
-
-.skills article {
-  margin: 30px auto;
-}
-
-.skills ul {
-  list-style: none;
+.skills-wrapper {
   display: flex;
-  justify-content: center;
+  gap: 40px;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 0;
 }
 
-.skills li {
-  margin-top: 20px;
-  padding: 12px 24px;
-  border-radius: 25px;
-  border: none;
-  background-color: #e0f2fe;;
-  color: #0b2e59;
+.skills-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.skill {
+  margin-bottom: 25px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+  color: #0b2e59;
+}
+
+/* 🔹 Progress bar background (light blue) */
+.bar {
+  position: relative; /* 🔥 important */
+  width: 100%;
+  height: 10px;
+  background: #cfe3ff;
+  border-radius: 10px;
+}
+
+/* fill stays same */
+.fill {
+  height: 100%;
+  background: #0b2e59;
+  border-radius: 10px;
+}
+
+/* 🔥 badge now floats above bar */
+.badge {
+  position: absolute;
+  top: -30px;
+  transform: translateX(-50%);
+  background: #0b2e59;
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* arrow */
+.badge::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #0b2e59;
 }
 
 /* ========================= */
@@ -279,40 +338,40 @@ nav a:hover {
 
 .project-container {
   display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* makes it responsive */
-  margin-top: 2rem;
 }
 
-.project-card {
-  background: #f5f7fa;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 500px;
-  transition: transform 0.3s ease;
+.project-item {
+  width: 700px;
+  text-align: center;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
+/* Title ABOVE */
+.project-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #0b2e59;
 }
 
-/*  Image styling */
+/* Image = the card */
 .project-image {
-  width: 400px;
-  height: 200px;
+  width: 100%;
+  height: 350px;
   object-fit: cover;
-  border-radius: 10px;
-  margin: 1rem 0;
+
+  border: 4px solid #cfe3ff; /* 🔥 light blue border */
+  border-radius: 12px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.project-card h3 {
-  color: #0f2a44; /* your dark blue */
-  margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  color: #333;
+/* Hover effect */
+.project-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .tech {
@@ -336,6 +395,15 @@ nav a:hover {
   font-weight: 800;
   color: #0b2e59;
   margin-bottom: 10px;
+}
+
+.datathons h3 {
+  color: #0b2e59;
+}
+
+.datathon-stack {
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -432,8 +500,42 @@ nav a:hover {
 
 @media (max-width: 768px) {
 
+  /* ===== GLOBAL ===== */
+  body {
+    text-align: center;
+  }
+
+  section {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: 15px;
+    max-width: 90%;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    display: none; /* keep hidden for now */
+  }
+
+  /* ===== HERO ===== */
   .hero-content {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -450,9 +552,80 @@ nav a:hover {
     margin-top: 30px;
   }
 
-  nav ul {
-    display: none; /* you can add hamburger menu later */
+  @media (max-width: 768px) {
+  .hero-left {
+    height: auto; /* allow stacking on small screens */
+    align-items: center;
   }
+
+  .hero-actions {
+    align-items: center;
+  }
+}
+
+  /* ===== SKILLS ===== */
+  .skills-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .skills-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill {
+    width: 100%;
+  }
+
+  .skill-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bar {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .badge {
+    transform: translateX(-50%);
+  }
+
+  /* ===== PROJECTS ===== */
+  .project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .project-card {
+    width: 90%;
+    text-align: center;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* ===== DATATHONS ===== */
+  .datathons .project-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .datathons .project-card {
+    width: 90%;
+    text-align: center;
+  }
+
 }
 
 html {

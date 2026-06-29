@@ -4,7 +4,7 @@ function About() {
 
       <h2>About Me</h2>
 
-      <h3>Aspiring software developer & data scientist</h3>
+      <h3>Aspiring web developer & data scientist</h3>
 
       <div className="about-content">
         <p>
