@@ -174,7 +174,7 @@ nav a:hover {
 }
 
 .hero-right {
-  margin-right: 90px;
+  margin-right: 2 px;
 }
 
 /* CTA Button */
@@ -200,7 +200,7 @@ nav a:hover {
 
 /* Right side image */
 .hero-right img {
-  width: 350px;
+  width: 370px;
 }
 
 /* ========================= */
