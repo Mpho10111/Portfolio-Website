@@ -3,16 +3,16 @@ function Datathons(){
     const datathons = [
         {
             title: "IBM Z Datathon 2025",
-            image: "/datathon1.png"
+            image: "/datathon1.png",
         },
         {
             title: "DIRISA Student Datathon Challenge 2025",
-            image: "/datathon2.png"
-        }, 
+            image: "/datathon2.png",
+        },
         {
             title: "Green Digital Infrastructure Workshop 2026",
-            image: "/greendigitalcert.png"
-        }
+            image: "/greendigitalcert.png",
+        },
     ];
 
     return (
