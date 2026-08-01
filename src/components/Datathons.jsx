@@ -8,13 +8,17 @@ function Datathons(){
         {
             title: "DIRISA Student Datathon Challenge 2025",
             image: "/datathon2.png"
+        }, 
+        {
+            title: "Green Digital Infrastructure Workshop 2026",
+            image: "/greendigitalcert.png"
         }
     ];
 
     return (
         <section id="datathons" className="datathons">
 
-            <h2>Datathon Achievements</h2>
+            <h2>Datathon Achievements & Certificates</h2>
 
             <div className="project-container datathon-stack">
                {datathons.map((datathon) => (

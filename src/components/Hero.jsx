@@ -4,9 +4,9 @@ import { FaEnvelope, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 function Hero(props) {
 
   const titles = [
-    "female in STEM!", 
-    "data science enthusiast!", 
-    "web designer!"
+    "Female in STEM!", 
+    "Data Science Enthusiast!", 
+    "Web Designer in the Making!"
   ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
