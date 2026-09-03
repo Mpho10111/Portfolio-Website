@@ -23,7 +23,7 @@ function App(){
       />
       <Hero
         name="Hi, I'm Mpho"
-        description= "..."
+        description= "Deeply passionate about life, growth, and becoming someone my Creator, my loved ones, and my future self can be proud of."
       />
       <About
 

@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { FaEnvelope, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
+const titles = [
+  "Female in STEM!",
+  "Data Science Enthusiast!",
+];
+
 function Hero(props) {
-
-  const titles = [
-    "Female in STEM!", 
-    "Data Science Enthusiast!", 
-    "Web Designer in the Making!"
-  ];
-
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);

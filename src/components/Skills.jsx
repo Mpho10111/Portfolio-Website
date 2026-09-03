@@ -4,9 +4,10 @@ function Skills() {
     { name: "CSS", level: 80, label: "Highly Proficient" },
     { name: "JavaScript", level: 70, label: "Proficient" },
     { name: "Python", level: 80, label: "Highly Proficient" },
-    { name: "Java", level: 70, label: "Proficient" },
-    { name: "C++", level: 70, label: "Proficient" },
-    { name: "MySQL", level: 70, label: "Proficient" }
+    { name: "MySQL", level: 70, label: "Proficient" },
+    { name: "Data Analysis", level: 80, label: "Highly Proficient" },
+    { name: "Data Visualization", level: 80, label: "Highly Proficient" },
+    { name: "Data Modelling", level: 80, label: "Highly Proficient" }
   ];
 
   const softSkills = [
@@ -44,7 +45,7 @@ function Skills() {
     ));
 
   return (
-    <section className="skills">
+    <section id="skills" className="skills">
       <h2>Skills</h2>
 
       <div className="skills-wrapper">

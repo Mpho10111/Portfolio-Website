@@ -1,23 +1,35 @@
+import { useState } from "react";
 import emailjs from "emailjs-com";
 
 function Contact() {
+  const [status, setStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
-      e.target,
-      "YOUR_PUBLIC_KEY"
-    )
-    .then(() => {
-      alert("Message sent successfully!");
-    }, () => {
-      alert("Something went wrong.");
-    });
+    const form = e.target;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    e.target.reset();
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("Email service is not configured yet.");
+      return;
+    }
+
+    setIsSending(true);
+    setStatus("Sending...");
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, form, publicKey);
+      setStatus("Message sent successfully!");
+      form.reset();
+    } catch {
+      setStatus("Something went wrong. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -40,7 +52,11 @@ function Contact() {
 
         </div>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" disabled={isSending}>
+          {isSending ? "Sending..." : "Send Message"}
+        </button>
+
+        {status && <p className="contact-status">{status}</p>}
       </form>
     </section>
   );
